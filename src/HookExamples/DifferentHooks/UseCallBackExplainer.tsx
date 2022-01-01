@@ -5,15 +5,17 @@ export default function UseCallBackExplainer() {
   const [number, setNumber] = useState(0)
   const [toggledVal, setToggledVal] = useState(false)
 
-  // const getNumbersList = (addedVal: number) => {
-  //   return [number, number+addedVal, number+addedVal+1]
+  // const getNumbersList = () => {
+  //   return [number, number+1, number+2]
   // }
+
   const getNumbersList = useCallback(
     (addedVal: number) => {
-      return [number, number+addedVal, number+addedVal+1]
+      return [number, number+addedVal+1, number+addedVal+2]
     },
     [number],
   )
+
   const toggleValues = () => {
     setToggledVal(!toggledVal)
   }
