@@ -1,0 +1,265 @@
+:root {
+  --first-color: #2393fc;
+  --tag-background: #e0ffff;
+  --second-color: #ffffff;
+  --heading-color: #6a6a6a; 
+  --cancel-color: #FF3A46;
+  --success-color: #7ef0ac;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: var(--first-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--second-color);
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  background: #eee;
+  padding: 0 16px;
+}
+ul {list-style-type: none;}
+a {text-decoration: unset !important;}
+header {
+  background-color: var(--first-color);
+  margin: auto -16px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+header h1 {
+  color: #fff;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
+footer {
+  position: fixed;
+  text-align: center;
+  bottom: 5px;
+  width: 100%;
+  height: 30px;
+}
+
+footer p {
+  color: #ccc;
+}
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: var(--first-color);
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+}
+
+.special-button {
+  border: 2px solid var(--first-color);
+  padding: 10px 30px;
+  margin: 10px 5px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--tag-background);
+  color: var(--first-color) !important;
+  cursor: pointer;
+}
+
+.notes-editor {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+.notes-editor input,
+.notes-editor textarea {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+}
+.dropdownMenu {
+  width: 170px;
+}
+.dropdownMenu_loginPage {
+  text-align: right;
+  margin-top: 20px;
+}
+.notes-editor .note_button--idle {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: var(--first-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.notes-editor .note_button--active {
+  position: relative;
+  float: right;
+  right: 18px;
+  bottom: -18px;
+  margin-right: 10px;
+  background: #e73e14;
+  border: none;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  outline: none;
+}
+
+.containerC {
+  background-color: var(--first-color);
+  margin: 5% auto;
+  padding: 40px;
+  width: fit-content;
+  text-align: center;
+}
+
+.containerC h1 {
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.logging-form {
+  padding: 20px 0;
+  position: relative;
+}
+.logging-form input {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+  background-color: rgba(252, 252, 252, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  font-family: "Source Sans Pro", sans-serif;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: 300;
+}
+
+.logging-form button {
+  appearance: none;
+  outline: 0;
+  background-color: white;
+  border: 0;
+  padding: 10px 15px;
+  color: #50a3a2;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 18px;
+}
+
+.about-page {
+  font-size: 20px;
+  width: 300px;
+  margin: 10% auto;
+  padding: 20px 0;
+  text-align: center;
+}
+.about-page:hover {
+  background-color:var(--first-color);
+  color: #ffffff;
+  transform: rotate(20deg);
+}
+
+.job-card {
+  width: 100%;
+  padding: 20px;
+  background-color: aliceblue;
+  min-height: 100px;
+  cursor: pointer;
+}
+.job-card:hover {
+  opacity: 0.7;
+}
+.job-card.active {
+  border-left: 10px solid blueviolet;
+  background-color: white;
+}
+.job-card p {
+  color: #6d6d6d;
+}
+.job-card span {
+  margin-left: 50px;
+  font-weight: bold;
+}
+.job-card h4 span {
+  font-size: large;
+}
+.job-details {
+  width: 100%;
+  padding: 50px;
+}
+.job-details h4, .job-details p {
+  margin: 20px auto;
+}
+/* hooks page */
+.hooks-page {
+  display: flex;
+  flex-direction: column;
+}
+.fixed-position {
+  position: fixed;
+  left: 0px;
+  padding: 10px;
+  background: white;
+  font-weight: bold;;
+}
+.section-head {
+  text-align: center;
+  color: var(--heading-color);
+}
+.special-outline {
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid var(--heading-color);
+  border-radius: 10px;
+}
