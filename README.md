@@ -2,7 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## this project is the code written through aseeu course to teach basics of ReactJS & TypeScript & Redux
+## this code is part of aseeu course
+The course aims to teach basics of ReactJS & TypeScript & Redux
 Course can be found here:
 https://www.udemy.com/course/react-typescript-from-zero-to-master/?referralCode=A3658E82FF64A24EE594
 
