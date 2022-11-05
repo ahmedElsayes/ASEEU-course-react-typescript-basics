@@ -6,30 +6,33 @@ import Notespage from "./Notespage";
 import Mainform from "./loging_files/Mainform";
 import Jobs from "../jobsPage/Jobs";
 import HookExamples from "../HookExamples/HookExamples";
+import DragAndDrop from "../DragAndDrop/DragAndDrop";
 
 function App() {
   return (
     <div>
       <Header />
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
+      <div>
+        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
+        <Switch>
+          <Route path="/draganddrop">
+            <DragAndDrop />
+          </Route>
           <Route path="/hooks">
-              <HookExamples />
-            </Route>
-            <Route path="/jobs">
-              <Jobs />
-            </Route>
-            <Route path="/register">
-              <Mainform />
-            </Route>
-            <Route path="/" exact>
-              <Notespage />
-            </Route>
-
-          </Switch>
-        </div>
+            <HookExamples />
+          </Route>
+          <Route path="/jobs">
+            <Jobs />
+          </Route>
+          <Route path="/register">
+            <Mainform />
+          </Route>
+          <Route path="/" exact>
+            <Notespage />
+          </Route>
+        </Switch>
+      </div>
       <Footer />
     </div>
   );

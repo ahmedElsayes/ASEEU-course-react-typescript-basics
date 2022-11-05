@@ -24,6 +24,9 @@ function Header() {
           <li className="nav-item nav-link">
             <Link to="/hooks">HookExamples</Link>
           </li>
+          <li className="nav-item nav-link">
+            <Link to="/draganddrop">DragDrop</Link>
+          </li>
         </ul>
         <hr />
       </nav>

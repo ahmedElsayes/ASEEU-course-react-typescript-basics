@@ -2,8 +2,8 @@
   --first-color: #2393fc;
   --tag-background: #e0ffff;
   --second-color: #ffffff;
-  --heading-color: #6a6a6a; 
-  --cancel-color: #FF3A46;
+  --heading-color: #6a6a6a;
+  --cancel-color: #ff3a46;
   --success-color: #7ef0ac;
 }
 ::-webkit-scrollbar {
@@ -27,8 +27,12 @@ body {
   background: #eee;
   padding: 0 16px;
 }
-ul {list-style-type: none;}
-a {text-decoration: unset !important;}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: unset !important;
+}
 header {
   background-color: var(--first-color);
   margin: auto -16px;
@@ -205,7 +209,7 @@ footer p {
   text-align: center;
 }
 .about-page:hover {
-  background-color:var(--first-color);
+  background-color: var(--first-color);
   color: #ffffff;
   transform: rotate(20deg);
 }
@@ -238,7 +242,8 @@ footer p {
   width: 100%;
   padding: 50px;
 }
-.job-details h4, .job-details p {
+.job-details h4,
+.job-details p {
   margin: 20px auto;
 }
 /* hooks page */
@@ -251,7 +256,7 @@ footer p {
   left: 0px;
   padding: 10px;
   background: white;
-  font-weight: bold;;
+  font-weight: bold;
 }
 .section-head {
   text-align: center;
@@ -262,4 +267,13 @@ footer p {
   margin: 0 10px;
   border: 1px solid var(--heading-color);
   border-radius: 10px;
+}
+
+/* quick styling */
+
+.relative {
+  position: relative !important;
+}
+.absolute {
+  position: absolute !important;
 }

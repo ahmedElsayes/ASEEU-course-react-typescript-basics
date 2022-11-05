@@ -1,0 +1,27 @@
+/* .drag_drop_page {
+  position: relative;
+} */
+
+.drag_drop_page .drop-container {
+  min-height: 100px;
+  padding: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  transition: 0.3s;
+}
+.drag_drop_page .drop-container.activezone {
+  opacity: 0.5;
+}
+.drag_drop_page .drop-container.el1 {
+  background-color: rgb(75, 93, 255);
+}
+.drag_drop_page .drop-container .el2 {
+  background-color: rgb(141, 152, 255);
+}
+.drag_drop_page .drop-container .el3 {
+  background-color: rgb(194, 200, 255);
+}
