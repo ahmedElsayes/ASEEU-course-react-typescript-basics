@@ -1,18 +1,9 @@
-import React, { createRef, useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
-import { TouchDragImage } from "./TouchDragImage";
 
-interface ElementPosProp {
-  offsetX: number;
-  offsetY: number;
-}
 export default function DragAndDrop() {
-  const dropzoneRef = createRef<HTMLDivElement>();
   const [dropZoneId, setDropZoneId] = useState("");
-  const [draggedElId, setDraggedElId] = useState("");
-  const [elementInitPos, setElementInitPos] = useState<ElementPosProp | null>(null);
-  const [touchCoordinates, setTouchCoordinates] = useState<number[] | null>(null);
-  const [draggedElement, setDraggedElement] = useState<Node | null>(null);
+  const [draggedElement, setDraggedElement] = useState<HTMLElement | null>(null);
 
   // const onTouchMove = (e: TouchEvent<HTMLButtonElement>) => {
   //   console.log("dragged element in move, element id: ", e.currentTarget.id);
@@ -40,11 +31,57 @@ export default function DragAndDrop() {
   //     offsetY: e.targetTouches[0].pageY,
   //   });
   // };
+
+  // interact(".drop-container.el1").resizable({
+  //   // resize from all edges and corners
+  //   edges: { left: true, right: true, bottom: true, top: true },
+
+  //   listeners: {
+  //     move(event) {
+  //       var target = event.target;
+  //       var x = parseFloat(target.getAttribute("data-x")) || 0;
+  //       var y = parseFloat(target.getAttribute("data-y")) || 0;
+
+  //       // update the element's style
+  //       target.style.width = event.rect.width + "px";
+  //       target.style.height = event.rect.height + "px";
+
+  //       // translate when resizing from top or left edges
+  //       x += event.deltaRect.left;
+  //       y += event.deltaRect.top;
+
+  //       target.style.transform = "translate(" + x + "px," + y + "px)";
+
+  //       target.setAttribute("data-x", x);
+  //       target.setAttribute("data-y", y);
+  //     },
+  //   },
+  //   modifiers: [
+  //     // keep the edges inside the parent
+  //     interact.modifiers.restrictEdges({
+  //       outer: "parent",
+  //     }),
+
+  //     // minimum size
+  //     interact.modifiers.restrictSize({
+  //       min: { width: 300, height: 300 },
+  //     }),
+  //   ],
+
+  //   inertia: true,
+  // });
+
   const onElementDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     console.log("onDrop element id: ", e.currentTarget.id);
-    const nodeCopy = draggedElement?.cloneNode(true);
-    nodeCopy && dropzoneRef.current?.appendChild(nodeCopy);
+    const nodeCopy: any = draggedElement?.cloneNode(true);
+
+    nodeCopy?.style.setProperty("background", "#fff");
+    nodeCopy?.setAttribute("id", (Math.random() + 1).toString(36).substring(7));
+    nodeCopy?.removeAttribute("draggable");
+
+    const buttonsContainer = e.currentTarget.getElementsByClassName("buttons_container")[0];
+    if (nodeCopy) buttonsContainer?.appendChild(nodeCopy);
     setDropZoneId("");
   };
 
@@ -56,10 +93,6 @@ export default function DragAndDrop() {
           draggable
           id="drag_button"
           className="special-button"
-          // onTouchStart={(e) => {
-          //   setDraggedElId(e.currentTarget.id);
-          // }}
-          // onTouchMove={onTouchMove}
           onDragEnter={(e) => {
             //trigger value once
             console.log("onDragEnter (dragged-element) id: ", e.currentTarget.id);
@@ -79,29 +112,71 @@ export default function DragAndDrop() {
           comments
         </button>
       </div>
+
       <div className="col-md-6 col-sm-12">
         <div
           className={`drop-container el1 ${dropZoneId === "0" ? "activezone" : ""}`}
           id="0"
-          ref={dropzoneRef}
-          onDragOver={(e) => e.preventDefault()}
-          onDragEnter={(e) => {
-            console.log("onDragOverEnter element id: ", e.currentTarget.id);
+          onDragOver={(e) => {
+            e.preventDefault();
             e.stopPropagation();
+            console.log("onDragOver element id: ", e.currentTarget.id);
             setDropZoneId(e.currentTarget.id);
           }}
           onDragLeave={(e) => {
-            console.log("onDragOverLeave element id: ", e.currentTarget.id);
             e.stopPropagation();
+            console.log("onDragOverLeave element id: ", e.currentTarget.id);
             setDropZoneId("");
           }}
-          onDrop={onElementDrop}
+          onDrop={(e) => {
+            e.stopPropagation();
+            onElementDrop(e);
+          }}
         >
-          First Area for dropping
-          <div className={`drop-container el2 ${dropZoneId === "1" ? "activezone" : ""}`} id="1">
-            Second Area for dropping
-            <div className={`drop-container el3 ${dropZoneId === "2" ? "activezone" : ""}`} id="2">
-              Third Area for dropping
+          <p>First Area for dropping</p>
+          <div className="buttons_container"></div>
+          <div
+            className={`drop-container el2 ${dropZoneId === "1" ? "activezone" : ""}`}
+            id="1"
+            onDragOver={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log("onDragOver element id: ", e.currentTarget.id);
+              setDropZoneId(e.currentTarget.id);
+            }}
+            onDragLeave={(e) => {
+              e.stopPropagation();
+              console.log("onDragOverLeave element id: ", e.currentTarget.id);
+              setDropZoneId("");
+            }}
+            onDrop={(e) => {
+              e.stopPropagation();
+              onElementDrop(e);
+            }}
+          >
+            <p>Second Area for dropping</p>
+            <div className="buttons_container"></div>
+            <div
+              className={`drop-container el3 ${dropZoneId === "2" ? "activezone" : ""}`}
+              id="2"
+              onDragOver={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log("onDragOver element id: ", e.currentTarget.id);
+                setDropZoneId(e.currentTarget.id);
+              }}
+              onDragLeave={(e) => {
+                e.stopPropagation();
+                console.log("onDragOverLeave element id: ", e.currentTarget.id);
+                setDropZoneId("");
+              }}
+              onDrop={(e) => {
+                e.stopPropagation();
+                onElementDrop(e);
+              }}
+            >
+              <p>Third Area for dropping</p>
+              <div className="buttons_container"></div>
             </div>
           </div>
         </div>

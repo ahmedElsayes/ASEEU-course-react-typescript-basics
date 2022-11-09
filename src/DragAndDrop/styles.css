@@ -12,16 +12,39 @@
   justify-content: center;
   text-align: center;
   transition: 0.3s;
+  border: 1px solid skyblue;
+  border-radius: 10px;
+  resize: horizontal;
+  overflow: auto;
+  font-weight: 600;
+  color: #6c6c6c;
+}
+.drag_drop_page .drop-container .buttons_container {
+  margin: auto;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #45d9a6;
+  margin-bottom: 7px;
+  border-radius: 7px;
+  padding: 20px;
+  overflow-x: scroll;
 }
 .drag_drop_page .drop-container.activezone {
-  opacity: 0.5;
+  background-color: #45d9a6 !important;
 }
+
 .drag_drop_page .drop-container.el1 {
-  background-color: rgb(75, 93, 255);
+  background-color: rgb(139, 201, 255);
+  z-index: 1;
 }
 .drag_drop_page .drop-container .el2 {
-  background-color: rgb(141, 152, 255);
+  background-color: rgb(189, 224, 255);
+  z-index: 2;
 }
 .drag_drop_page .drop-container .el3 {
-  background-color: rgb(194, 200, 255);
+  background-color: aliceblue;
+  z-index: 3;
 }
