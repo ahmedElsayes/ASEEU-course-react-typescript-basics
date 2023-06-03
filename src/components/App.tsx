@@ -7,6 +7,7 @@ import Mainform from "./loging_files/Mainform";
 import Jobs from "../jobsPage/Jobs";
 import HookExamples from "../HookExamples/HookExamples";
 import DragAndDrop from "../DragAndDrop/DragAndDrop";
+import TestPage from "../DropdownPage/TestPage";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Mainform />
+          </Route>
+          <Route path="/test">
+            <TestPage />
           </Route>
           <Route path="/" exact>
             <Notespage />
