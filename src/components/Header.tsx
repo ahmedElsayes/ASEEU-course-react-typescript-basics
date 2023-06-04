@@ -27,6 +27,9 @@ function Header() {
           <li className="nav-item nav-link">
             <Link to="/draganddrop">DragDrop</Link>
           </li>
+          <li className="nav-item nav-link">
+            <Link to="/test">Test Page</Link>
+          </li>
         </ul>
         <hr />
       </nav>
